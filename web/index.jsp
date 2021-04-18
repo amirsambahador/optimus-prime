@@ -1,5 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <script src="/assets/standard-js/jquery.min.js"></script>
 <script src="/assets/standard-js/bootstrap.min.js"></script>
@@ -27,20 +27,20 @@
 
 <script type="text/babel">
     const  map = new Map();
-    map['name']='bbb';
+    map['name']='REQUEST BODY NAME';
 
     Request.send(
     "post",
-    'http://localhost:8080/test.do?name=a',
+    'http://localhost:8080/test.do?name=URLNAME',
     Request.TEXT,
     JSON.stringify(map),
     function (status,response) {
     alert(status+" ,"+response);
     });
 
-    const jsonArray = JSON.stringify([{name: "amirsam", id: 222, family: "bahador"}, {
-        name: "amirsam",
-        id: 222,
+    const jsonArray = JSON.stringify([{name: "amirsam", id: 1, family: "bahador"}, {
+        name: "amir",
+        id: 2,
         family: "bahador"
     }]);
 
