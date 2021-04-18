@@ -26,11 +26,8 @@
 </div>
 
 <script type="text/babel">
-
-
     const  map = new Map();
     map['name']='bbb';
-
 
     Request.send(
     "post",
@@ -41,15 +38,11 @@
     alert(status+" ,"+response);
     });
 
-
-
     const jsonArray = JSON.stringify([{name: "amirsam", id: 222, family: "bahador"}, {
         name: "amirsam",
         id: 222,
         family: "bahador"
     }]);
-
-
 
     UIManager.fillTable(["name", "id", "family"], jsonArray, 'rows');
 </script>
