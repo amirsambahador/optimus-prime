@@ -100,16 +100,9 @@ class EntityManager {
         }
     }
 
-    static findAll() {
+    static findKeys() {
         if (typeof (Storage) !== "undefined") {
-            var values = [],
-                keys = Object.keys(localStorage),
-                index = keys.length;
-
-            while (index--) {
-                values.push(localStorage.getItem(keys[index]));
-            }
-            return values;
+            return Object.keys(localStorage);
         } else {
             console.log("browser does not support web storage...");
         }
