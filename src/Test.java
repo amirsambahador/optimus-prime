@@ -11,8 +11,6 @@ public class Test extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setHeader("Access-Control-Allow-Origin",req.getHeader("origin"));
-        resp.setHeader("Access-Control-Allow-Methods", "POST");
-        resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
         System.out.println("METHOD: "+req.getMethod());
         System.out.println("QUERY STRING: "+req.getQueryString());
