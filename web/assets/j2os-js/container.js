@@ -167,7 +167,7 @@ class UIManager {
 
     static addKeyListener(keys) {
         /*
-          keys = new Array();
+          const keys = new Array();
           keys['a'] = "javascript:alert('a1')";
           keys['m'] = "javascript:alert('m1')";
           UIManager.addKeyListener(keys);
