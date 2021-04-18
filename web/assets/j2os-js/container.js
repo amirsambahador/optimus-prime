@@ -167,11 +167,10 @@ class UIManager {
 
     static addKeyListener(keys) {
         /*
-          uiManager = JavaScriptContainer.getUIManager();
           keys = new Array();
           keys['a'] = "javascript:alert('a1')";
           keys['m'] = "javascript:alert('m1')";
-          uiManager.addKeyListener(keys);
+          UIManager.addKeyListener(keys);
          */
         function keyListener(keyStroke) {
             const isNetscape = (document.layers);
