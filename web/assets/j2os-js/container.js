@@ -119,7 +119,6 @@ class EntityManager {
 
 class UIManager {
 
-
     static getValue(componentId) {
         return document.getElementById(componentId).value;
     }
