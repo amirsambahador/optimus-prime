@@ -26,21 +26,21 @@
 </div>
 
 <script type="text/babel">
-    const  map = new Map();
-    map['name']='REQUEST BODY NAME';
+    const map = new Map();
+    map['name'] = 'REQUEST BODY NAME';
 
     Request.send(
-    "post",
-    'http://localhost:8080/test.do?name=URLNAME',
-    Request.TEXT,
-    JSON.stringify(map),
-    function (status,response) {
-    alert(status+" ,"+response);
-    });
+        "post",
+        'http://localhost:8080/test.do?name=URLNAME',
+        Request.TEXT,
+        JSON.stringify(map),
+        function (status, response) {
+            alert(status + " ," + response);
+        });
 
-    const jsonArray = JSON.stringify([{name: "amirsam", id: 1, family: "bahador"}, {
-        name: "amir",
+    const jsonArray = JSON.stringify([{id: 1, name: "amirsam", family: "bahador"}, {
         id: 2,
+        name: "amir",
         family: "bahador"
     }]);
 
