@@ -255,7 +255,7 @@ class UIManager {
          */
         let html = "";
         for (const jsonObject of JSON.parse(jsonArray)) {
-            html += "<tr class='clickable-row' " + onEvent + "='" + callback + "(" + JSON.stringify(jsonObject) + ")'>";
+            html += "<tr " + onEvent + "='" + callback + "(" + JSON.stringify(jsonObject) + ")'>";
             for (const columnName of columnArray) {
                 html += "<td>";
                 html += jsonObject[columnName];
