@@ -1,9 +1,5 @@
 class Request {
-
-    static JSON = "application/json;charset=UTF-8";
-    static TEXT = "text/plain;charset=UTF-8";
-
-    static send(requestType, requestUrl, contentType, requestBody, callBack) {
+    static send(requestType, requestUrl, callBack, requestBody, headers) {
         if (typeof XMLHttpRequest === "undefined") {
             XMLHttpRequest = function () {
                 try {
@@ -23,17 +19,16 @@ class Request {
         }
         const http = new XMLHttpRequest();
         http.open(requestType, requestUrl, true);
-        http.setRequestHeader('Content-Type', contentType);
+        //http.setRequestHeader('Content-Type', "application/json;charset=UTF-8");
+        for (const headerName in headers) {
+            http.setRequestHeader(headerName, headers[headerName]);
+        }
         http.onreadystatechange = function () {
             if (http.readyState === 4) {
                 callBack(http.status, http.responseText);
             }
         }
-        if (requestBody != null) {
-            http.send(requestBody);
-        } else {
-            http.send();
-        }
+        http.send(requestBody);
     }
 
     static getURL() {
