@@ -113,28 +113,23 @@ class EntityManager {
 class UIManager {
 
     static getValue(componentId) {
-        //ById
         return document.getElementById(componentId).value;
     }
 
 
     static getAttribute(componentId, attribute) {
-        //ById
         return document.getElementById(componentId).getAttribute(attribute);
     }
 
     static setAttribute(componentId, attribute, value) {
-        //ById
         document.getElementById(componentId).setAttribute(attribute, value);
     }
 
     static submit(componentId) {
-        //ById
         document.getElementById(componentId).submit();
     }
 
     static reset(componentId) {
-        //ById
         document.getElementById(componentId).reset();
     }
 
@@ -143,7 +138,6 @@ class UIManager {
     }
 
     static isHide(componentId) {
-        //ById
         if (document.getElementById(componentId).style.display == '') {
             return false;
         } else {
@@ -152,27 +146,22 @@ class UIManager {
     }
 
     static hide(componentId) {
-        //ById
         document.getElementById(componentId).style.display = 'none';
     }
 
     static show(componentId) {
-        //ById
         document.getElementById(componentId).style.display = '';
     }
 
     static isDisabled(componentId) {
-        //ById
         return document.getElementById(componentId).disabled;
     }
 
     static disable(componentId) {
-        //ById
         document.getElementById(componentId).disabled = true;
     }
 
     static enable(componentId) {
-        //ById
         document.getElementById(componentId).disabled = false;
     }
 
