@@ -32,11 +32,12 @@
     Request.send(
         "post",
         'http://localhost:8080/test.do?name=URLNAME',
-        Request.TEXT,
+        function (status,response) {
+            alert(status+" ,"+response);
+        },
         JSON.stringify(map),
-        function (status, response) {
-            alert(status + " ," + response);
-        });
+        {header1:'aaa',header2:'bbb'}
+    );
 
     const jsonArray = JSON.stringify([{id: 1, name: "amirsam", family: "bahador"}, {
         id: 2,
