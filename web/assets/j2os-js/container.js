@@ -113,23 +113,28 @@ class EntityManager {
 class UIManager {
 
     static getValue(componentId) {
+        //ById
         return document.getElementById(componentId).value;
     }
 
 
     static getAttribute(componentId, attribute) {
+        //ById
         return document.getElementById(componentId).getAttribute(attribute);
     }
 
     static setAttribute(componentId, attribute, value) {
+        //ById
         document.getElementById(componentId).setAttribute(attribute, value);
     }
 
     static submit(componentId) {
+        //ById
         document.getElementById(componentId).submit();
     }
 
     static reset(componentId) {
+        //ById
         document.getElementById(componentId).reset();
     }
 
@@ -138,6 +143,7 @@ class UIManager {
     }
 
     static isHide(componentId) {
+        //ById
         if (document.getElementById(componentId).style.display == '') {
             return false;
         } else {
@@ -146,22 +152,27 @@ class UIManager {
     }
 
     static hide(componentId) {
+        //ById
         document.getElementById(componentId).style.display = 'none';
     }
 
     static show(componentId) {
+        //ById
         document.getElementById(componentId).style.display = '';
     }
 
     static isDisabled(componentId) {
+        //ById
         return document.getElementById(componentId).disabled;
     }
 
     static disable(componentId) {
+        //ById
         document.getElementById(componentId).disabled = true;
     }
 
     static enable(componentId) {
+        //ById
         document.getElementById(componentId).disabled = false;
     }
 
@@ -193,17 +204,19 @@ class UIManager {
     }
 
     static form2Json(componentId) {
+        //ById
         const list = document.getElementById(componentId).elements;
         const map = new Map();
         for (const formElement of list) {
-            if (formElement.name != "") {
-                map[formElement.name] = formElement.value;
+            if (formElement.id != "") {
+                map[formElement.id] = formElement.value;
             }
         }
         return JSON.stringify(map);
     }
 
     static json2Form(componentId, jsonString) {
+        //ById
         const list = document.getElementById(componentId).elements;
         const jsonObject = JSON.parse(jsonString);
         for (const formElement of list) {
@@ -214,6 +227,7 @@ class UIManager {
     }
 
     static form2Url(componentId) {
+        //byName
         const list = document.getElementById(componentId).elements;
         let urlString = "";
         for (const formElement of list) {
@@ -225,6 +239,9 @@ class UIManager {
     }
 
     static fillTable(columnArray, jsonArray, componentId) {
+        /*
+            UIManager.fillTable(["name", "id", "family"], jsonArray, 'rows');
+         */
         let html = "";
         for (const jsonObject of JSON.parse(jsonArray)) {
             html += "<tr>";
@@ -235,6 +252,28 @@ class UIManager {
             }
             html += "</tr>";
 
+        }
+        document.getElementById(componentId).innerHTML = html;
+    }
+
+    static fillSelectableTable(columnArray, jsonArray, componentId, onEvent, callback) {
+        /*
+        UIManager.fillSelectableTable(["name", "id", "family"], jsonArray, 'rows','onclick','onClickCallBack');
+        function onClickCallBack(s)
+        {
+            alert(s['id']);
+        }
+         */
+        let html = "";
+        for (const jsonObject of JSON.parse(jsonArray)) {
+            html += "<tr " + onEvent + "='" + callback + "(" + JSON.stringify(jsonObject) + ")'>";
+            alert(html)
+            for (const columnName of columnArray) {
+                html += "<td>";
+                html += jsonObject[columnName];
+                html += "</td>";
+            }
+            html += "</tr>";
         }
         document.getElementById(componentId).innerHTML = html;
     }
