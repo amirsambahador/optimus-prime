@@ -226,7 +226,7 @@ class UIManager {
         /*
             UIManager.fillTable(["name", "id", "family"], jsonArray, 'rows');
          */
-        let html = "";
+        let html ="";
         for (const jsonObject of JSON.parse(jsonArray)) {
             html += "<tr>";
             for (const columnName of columnArray) {
@@ -250,7 +250,8 @@ class UIManager {
          */
         let html = "";
         for (const jsonObject of JSON.parse(jsonArray)) {
-            html += "<tr " + onEvent + "='" + callback + "(" + JSON.stringify(jsonObject) + ")'>";
+            html += "<tr>";
+            html +="<td><input  type='radio' name='"+componentId+"' " + onEvent + "='" + callback + "(" + JSON.stringify(jsonObject) + ")' /></td>";
             for (const columnName of columnArray) {
                 html += "<td>";
                 html += jsonObject[columnName];
